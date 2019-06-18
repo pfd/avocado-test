@@ -3,12 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://pfd.github.io/avocado-test/categories/</loc>
-    <priority>0</priority>
+    <loc>https://pfd.github.io/avocado-test/posts/my-first-post/</loc>
+    <lastmod>2019-06-17T23:02:22+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://pfd.github.io/avocado-test/</loc>
+    <lastmod>2019-06-17T23:02:22+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pfd.github.io/avocado-test/posts/</loc>
+    <lastmod>2019-06-17T23:02:22+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pfd.github.io/avocado-test/categories/</loc>
     <priority>0</priority>
   </url>
   
