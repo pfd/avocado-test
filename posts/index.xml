@@ -17,7 +17,8 @@
       <pubDate>Mon, 17 Jun 2019 19:05:51 -0700</pubDate>
       
       <guid>https://pfd.github.io/avocado-test/posts/another-post/</guid>
-      <description>This is the third in a series of boring posts. Checking to see if the Forestry deploy does not run when i run my publish script this time.</description>
+      <description>This is the third in a series of boring posts. Checking to see if the Forestry deploy does not run when i run my publish script this time.
+Update: updating this post to see where the HEAD is after setting up the gh-pages branch.</description>
     </item>
     
     <item>
