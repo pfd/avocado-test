@@ -18,7 +18,8 @@
       
       <guid>https://pfd.github.io/avocado-test/posts/another-post/</guid>
       <description>This is the third in a series of boring posts. Checking to see if the Forestry deploy does not run when i run my publish script this time.
-Update: updating this post to see where the HEAD is after setting up the gh-pages branch.</description>
+Update: updating this post to see where the HEAD is after setting up the gh-pages branch.
+graph LR; A[Hard edge] --|Link text| B(Round edge) B -- C{Decision} C --|One| D[Result one] C --|Two| E[Result two]  sequenceDiagram participant Alice participant Bob Alice-John: Hello John, how are you?</description>
     </item>
     
     <item>
