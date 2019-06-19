@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on My New Hugo Site</title>
+    <title>Posts on Avocado Test</title>
     <link>https://avocadotest.com/posts/</link>
-    <description>Recent content in Posts on My New Hugo Site</description>
+    <description>Recent content in Posts on Avocado Test</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 17 Jun 2019 19:05:51 -0700</lastBuildDate>
@@ -18,8 +18,7 @@
       
       <guid>https://avocadotest.com/posts/another-post/</guid>
       <description>This is the third in a series of boring posts. Checking to see if the Forestry deploy does not run when i run my publish script this time.
-Update: updating this post to see where the HEAD is after setting up the gh-pages branch.
-graph LR; A[Hard edge] --|Link text| B(Round edge) B -- C{Decision} C --|One| D[Result one] C --|Two| E[Result two]  sequenceDiagram participant Alice participant Bob Alice-John: Hello John, how are you?</description>
+Update: updating this post to see where the HEAD is after setting up the gh-pages branch.</description>
     </item>
     
     <item>
