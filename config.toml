@@ -1,8 +1,53 @@
 baseURL = "https://avocadotest.com/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "Avocado Test"
 theme = "hugo-theme-techdoc"
 
 [params]
-    # change default color scheme
-    themeVariant = "blue"
+languageCode = "en-us"
+DefaultContentLanguage = "en"
+title = "Avocado Test"
+theme = "hugo-theme-techdoc"
+
+hasCJKLanguage = true
+metaDataFormat = "yaml"
+
+pygmentsUseClasses = true
+pygmentsCodefences = true
+
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir= false
+enableMissingTranslationPlaceholders = false
+
+[Params]
+
+    # Souce Code repository section
+    description = "such as test"
+    github_repository = "https://github.com/pfd/avocado-test/"
+    version = "0.0.1"
+
+
+
+    # Analytic section
+    google_analytics_id = "" # Your Google Analytics tracking id
+    tag_manager_container_id = "GTM-5VQ5MXS" # Your Google Tag Manager container id
+    google_site_verification = "" # Your Google Site Verification for Search Console
+
+    # Theme settings section
+    dateformat = "" # default "2 Jan 2006"
+    # See the format reference https://gohugo.io/functions/format/#hugo-date-and-time-templating-reference
+
+    # path name excluded from documentation menu
+    menu_exclusion = ["archives", "blog", "entry", "post", "posts"]
+
+
+# Global menu section
+[[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+[[menu.main]]
+    name = "Twitter"
+    url = "https://twitter.com/pfd"
+    weight = 2
