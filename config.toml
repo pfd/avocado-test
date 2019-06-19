@@ -51,3 +51,8 @@ enableMissingTranslationPlaceholders = false
     name = "Twitter"
     url = "https://twitter.com/pfd"
     weight = 2
+
+[[menu.main]]
+    name = "Posts"
+    url = "/posts"
+    weight = 3
