@@ -5,3 +5,16 @@ draft: false
 ---
 
 This is my second post, the one after i added [This publish script](https://gohugo.io/hosting-and-deployment/hosting-on-github/).
+
+
+<div>
+    <!-- Web Notify button -->
+    <button id="register">Sign up for notifications</button>
+    <script>
+        document.getElementById('register').addEventListener('click', function () {
+            UA.then(function (sdk) {
+                sdk.register()
+            })
+        })
+    </script>
+</div>
