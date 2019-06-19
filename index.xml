@@ -27,7 +27,8 @@ Update: updating this post to see where the HEAD is after setting up the gh-page
       <pubDate>Mon, 17 Jun 2019 18:13:38 -0700</pubDate>
       
       <guid>https://avocadotest.com/posts/cool-post/</guid>
-      <description>This is my second post, the one after i added This publish script.</description>
+      <description>This is my second post, the one after i added This publish script.
+ Sign up for notifications  document.getElementById(&#39;register&#39;).addEventListener(&#39;click&#39;, function () { UA.then(function (sdk) { sdk.register() }) })   </description>
     </item>
     
     <item>

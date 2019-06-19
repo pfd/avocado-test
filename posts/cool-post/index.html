@@ -40,6 +40,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 <div class="content-container">
 <main><h1>Cool Post</h1><p>This is my second post, the one after i added <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">This publish script</a>.</p>
+
+<div>
+    <!-- Web Notify button -->
+    <button id="register">Sign up for notifications</button>
+    <script>
+        document.getElementById('register').addEventListener('click', function () {
+            UA.then(function (sdk) {
+                sdk.register()
+            })
+        })
+    </script>
+</div>
 <div class="edit-meta">
 Last updated on 17 Jun 2019
 
