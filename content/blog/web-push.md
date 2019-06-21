@@ -9,22 +9,19 @@ weight: 5
 
 {{< highlight "javascript" >}}
 
-// These are some handy things you can do with Web Notify in the browser. Note that
-// urbanairship.com uses the UASDK namespace
-
-// Testing Web Push in the console
+// These are some handy things you can do with Web Notify in the browser console.
 
 // Check if the channel is opted in
 UA.then(sdk => console.log(sdk.channel.optedIn))
 
-// re-register
-UA.then(sdk => console.log(sdk.register()))
-
 // opt out. you must re-register after
 UA.then(sdk => console.log(sdk.channel.optOut()))
 
+// re-register. If you unregister for some reason, the browser won't give you the opt-in dialog again, so register the channel with the register method.
+UA.then(sdk => console.log(sdk.register()))
+
 // add tag
-UA.then(sdk => console.log(sdk.channel.tags.add("happy-hour")))
+UA.then(sdk => console.log(sdk.channel.tags.add("avocado")))
 
 // Get channel id
 UASDK.then(sdk => console.log(sdk.channel.id))
@@ -33,16 +30,13 @@ UASDK.then(sdk => console.log(sdk.channel.id))
 UA.then(sdk => console.log(sdk.channel.tags.list))
 
 // checks to see if it has the tag
-UA.then(sdk => console.log(sdk.channel.tags.has("herp")))
+UA.then(sdk => console.log(sdk.channel.tags.has("avocado")))
 
 // set named user
 UA.then(sdk => console.log(sdk.channel.namedUser.set("pfd")))
 
 // get named user
 UA.then(sdk => console.log(sdk.channel.namedUser.id))
-
-// ua.com uses the UASDK namespace
-UASDK.then(sdk => console.log(sdk.channel.namedUser.id))
 
 // get the name of the Custom Event
 UA.then(sdk => console.log(sdk.CustomEvent.name))
