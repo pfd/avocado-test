@@ -3,14 +3,39 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://avocadotest.com/posts/another-post/</loc>
-    <lastmod>2019-06-17T19:05:51-07:00</lastmod>
+    <loc>https://avocadotest.com/blog/hello-whirled/</loc>
+    <lastmod>2019-06-20T19:26:31-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://avocadotest.com/</loc>
-    <lastmod>2019-06-17T19:05:51-07:00</lastmod>
+    <loc>https://avocadotest.com/getting-started/</loc>
+    <lastmod>2018-12-08T15:26:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://avocadotest.com/getting-started/installation/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://avocadotest.com/posts/hello_world/</loc>
+    <lastmod>2017-10-17T14:00:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://avocadotest.com/getting-started/configuration/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://avocadotest.com/blog/</loc>
+    <lastmod>2019-06-20T19:26:31-07:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://avocadotest.com/posts/another-post/</loc>
+    <lastmod>2019-06-17T19:05:51-07:00</lastmod>
   </url>
   
   <url>
@@ -27,6 +52,11 @@
   <url>
     <loc>https://avocadotest.com/posts/my-first-post/</loc>
     <lastmod>2019-06-17T23:02:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://avocadotest.com/</loc>
+    <lastmod>2018-12-08T15:26:15+00:00</lastmod>
   </url>
   
   <url>

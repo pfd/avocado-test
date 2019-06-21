@@ -3,11 +3,11 @@
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Posts - Avocado Test</title>
+<title>Installation - Avocado Test</title>
 <meta name="description" content="such as test">
 <meta name="generator" content="Hugo 0.55.6" />
 <link href="https://avocadotest.com/index.xml" rel="alternate" type="application/rss+xml">
-<link rel="canonical" href="https://avocadotest.com/posts/">
+<link rel="canonical" href="https://avocadotest.com/getting-started/installation/">
 <link rel="stylesheet" href="https://avocadotest.com/css/theme.min.css">
 <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 <link rel="stylesheet" href="https://avocadotest.com/css/chroma.min.css">
@@ -40,12 +40,42 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </nav>
 </div>
 <div class="content-container">
-<main><h1>Posts</h1><div class="edit-meta">
-Last updated on 17 Jun 2019
+<main><h1>Installation</h1>
+
+<h2 id="download-hugo-theme">Download Hugo theme</h2>
+
+<p>If you have git installed, you can do the following at the command-line-interface within the Hugo directory:</p>
+
+<pre><code>cd themes
+git clone https://github.com/thingsym/hugo-theme-techdoc.git
+</code></pre>
+
+<p>For more information read <a href="https://gohugo.io/themes/installing-and-using-themes/">the Hugo documentation</a>.</p>
+
+<h2 id="configure">Configure</h2>
+
+<p>You may specify options in config.toml (or config.yaml/config.json) of your site to make use of this theme&rsquo;s features.</p>
+
+<p>For an example of <code>config.toml</code>, see <a href="https://github.com/thingsym/hugo-theme-techdoc/blob/master/exampleSite/config.toml">config.toml</a> in exampleSite.</p>
+
+<p>See <a href="../configuration/">the Configuration documentation</a>.</p>
+
+<h2 id="preview-site">Preview site</h2>
+
+<p>To preview your site, run Hugo&rsquo;s built-in local server.</p>
+
+<pre><code>hugo server -t hugo-theme-techdoc
+</code></pre>
+
+<p>Browse site on <a href="http://localhost:1313">http://localhost:1313</a></p>
+<div class="edit-meta">
+Last updated on 17 Oct 2017
 
 
-<br></div><nav class="pagination"><a class="nav nav-prev" href="/blog/hello-whirled/" title="Hello Whirled"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Hello Whirled</a>
-<a class="nav nav-next" href="/posts/hello_world/" title="Hello_world">Next - Hello_world <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+<br>
+Published on 17 Oct 2017
+<br></div><nav class="pagination"><a class="nav nav-prev" href="/getting-started/" title="Getting Started"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Getting Started</a>
+<a class="nav nav-next" href="/getting-started/configuration/" title="Configuration">Next - Configuration <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
 </nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
 </footer>
 </main><div class="sidebar">
@@ -53,23 +83,23 @@ Last updated on 17 Jun 2019
 <ul>
 <li class=""><a href="https://avocadotest.com/">Home</a></li>
 
-<li class=""><a href="/getting-started/">Getting Started</a>
-<ul class="">
-<li class=""><a href="/getting-started/installation/">Installation</a></li>
+<li class="parent"><a href="/getting-started/">Getting Started</a>
+<ul class="sub-menu">
+<li class="active"><a href="/getting-started/installation/">Installation</a></li>
 <li class=""><a href="/getting-started/configuration/">Configuration</a></li>
 </ul>
   
 </li>
 
-<li class=" active"><a href="/blog/">Blogs</a>
+<li class=""><a href="/blog/">Blogs</a>
 <ul class="">
 <li class=""><a href="/blog/hello-whirled/">Hello Whirled</a></li>
 </ul>
   
 </li>
 
-<li class="parent active"><a href="/posts/">Posts</a>
-<ul class="sub-menu">
+<li class=""><a href="/posts/">Posts</a>
+<ul class="">
 <li class=""><a href="/posts/hello_world/">Hello_world</a></li>
 <li class=""><a href="/posts/another-post/">Another Post</a></li>
 <li class=""><a href="/posts/cool-post/">Cool Post</a></li>

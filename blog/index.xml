@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on Avocado Test</title>
+    <link>https://avocadotest.com/blog/</link>
+    <description>Recent content in Blogs on Avocado Test</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 20 Jun 2019 19:26:31 -0700</lastBuildDate>
+    
+	<atom:link href="https://avocadotest.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hello Whirled</title>
+      <link>https://avocadotest.com/blog/hello-whirled/</link>
+      <pubDate>Thu, 20 Jun 2019 19:26:31 -0700</pubDate>
+      
+      <guid>https://avocadotest.com/blog/hello-whirled/</guid>
+      <description>Whirled Peas Hello</description>
+    </item>
+    
+  </channel>
+</rss>

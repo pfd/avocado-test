@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Configuration - Avocado Test</title>
+<meta name="description" content="such as test">
+<meta name="generator" content="Hugo 0.55.6" />
+<link href="https://avocadotest.com/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://avocadotest.com/getting-started/configuration/">
+<link rel="stylesheet" href="https://avocadotest.com/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://avocadotest.com/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://avocadotest.com/js/functions.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://avocadotest.com/js/jquery.backtothetop/jquery.backtothetop.min.js"></script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5VQ5MXS');</script>
+</head>
+<body>
+<div class="container"><header>
+<h1>Avocado Test</h1>
+
+ <span class="version">Version 0.0.1</span>
+<a href="https://github.com/pfd/avocado-test/" class="github"><i class="fab fa-github"></i></a>
+<p class="description">such as test</p>
+
+</header>
+<div class="menu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="https://twitter.com/pfd">Twitter</a></li>
+<li><a href="/posts">Posts</a></li>
+<li><a href="/posts/cool-post/">Cool Post</a></li></ul>
+</nav>
+</div>
+<div class="content-container">
+<main><h1>Configuration</h1>
+
+<p>You may specify options in config.toml (or config.yaml/config.json) of your site to make use of this theme’s features.</p>
+
+<p>For an example of <code>config.toml</code>, see <a href="https://github.com/thingsym/hugo-theme-techdoc/blob/master/exampleSite/config.toml">config.toml</a> in exampleSite.</p>
+
+<h2 id="params">Params</h2>
+
+<pre><code># Souce Code repository section
+description = &quot;put your description&quot;
+github_repository = &quot;https://github.com/thingsym/hugo-theme-techdoc&quot;
+version = &quot;0.2.2&quot;
+
+# Documentation repository section
+# documentation repository (set edit link to documentation repository)
+github_doc_repository = &quot;https://github.com/thingsym/hugo-theme-techdoc&quot;
+
+# Analytic section
+google_analytics_id = &quot;&quot; # Your Google Analytics tracking id
+tag_manager_container_id = &quot;&quot; # Your Google Tag Manager container id
+google_site_verification = &quot;&quot; # Your Google Site Verification
+
+# Theme settings section
+dateformat = &quot;&quot; # default &quot;2 Jan 2006&quot;
+
+# path name excluded from document menu
+menu_exclusion = [&quot;archives&quot;, &quot;blog&quot;, &quot;entry&quot;, &quot;post&quot;, &quot;posts&quot;]
+</code></pre>
+
+<h4 id="description"><code>description</code></h4>
+
+<p>The document summary</p>
+
+<p>default: <code>put your description</code></p>
+
+<h4 id="github-repository"><code>github_repository</code></h4>
+
+<p>URL of souce code repository</p>
+
+<p>default: <code>https://github.com/thingsym/hugo-theme-techdoc</code></p>
+
+<h4 id="version"><code>version</code></h4>
+
+<p>The version of souce code</p>
+
+<p>default: <code>0.2.2</code></p>
+
+<h4 id="github-doc-repository"><code>github_doc_repository</code></h4>
+
+<p>URL of documentation repository for editting</p>
+
+<p>default: <code>https://github.com/thingsym/hugo-theme-techdoc</code></p>
+
+<h4 id="google-analytics-id"><code>google_analytics_id</code></h4>
+
+<p>ID of Google Analytics</p>
+
+<p>default: <code>&quot;&quot;</code></p>
+
+<p>Container ID of Google Tag Manager</p>
+
+<h4 id="tag-manager-container-id"><code>tag_manager_container_id</code></h4>
+
+<p>default: <code>&quot;&quot;</code></p>
+
+<h4 id="google-site-verification"><code>google_site_verification</code></h4>
+
+<p>Content value in meta tag <code>google-site-verification</code> for Google Search Console</p>
+
+<pre><code>&lt;meta name=&quot;google-site-verification&quot; content=&quot;e7-viorjjfiihHIoowh8KLiowhbs&quot; /&gt;
+</code></pre>
+
+<p>default: <code>&quot;&quot;</code></p>
+
+<h4 id="dateformat"><code>dateformat</code></h4>
+
+<p>default: <code>&quot;&quot;</code> as <code>2 Jan 2006</code></p>
+
+<h4 id="menu-exclusion"><code>menu_exclusion</code></h4>
+
+<p>Path name excluded from documentation menu</p>
+
+<p>By default, we exclude commonly used folder names in blogs.</p>
+
+<p>default: <code>[&quot;archives&quot;, &quot;blog&quot;, &quot;entry&quot;, &quot;post&quot;, &quot;posts&quot;]</code></p>
+<div class="edit-meta">
+Last updated on 17 Oct 2017
+
+
+<br>
+Published on 17 Oct 2017
+<br></div><nav class="pagination"><a class="nav nav-prev" href="/getting-started/installation/" title="Installation"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Installation</a>
+<a class="nav nav-next" href="/blog/" title="Blogs">Next - Blogs <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main><div class="sidebar">
+<nav>
+<ul>
+<li class=""><a href="https://avocadotest.com/">Home</a></li>
+
+<li class="parent"><a href="/getting-started/">Getting Started</a>
+<ul class="sub-menu">
+<li class=""><a href="/getting-started/installation/">Installation</a></li>
+<li class="active"><a href="/getting-started/configuration/">Configuration</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="/blog/">Blogs</a>
+<ul class="">
+<li class=""><a href="/blog/hello-whirled/">Hello Whirled</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="/posts/">Posts</a>
+<ul class="">
+<li class=""><a href="/posts/hello_world/">Hello_world</a></li>
+<li class=""><a href="/posts/another-post/">Another Post</a></li>
+<li class=""><a href="/posts/cool-post/">Cool Post</a></li>
+<li class=""><a href="/posts/my-first-post/">My First Post</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+<div class="sidebar-footer"></div>
+</div>
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>
