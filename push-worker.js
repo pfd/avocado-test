@@ -8,3 +8,4 @@ uaSetup.worker(self, {
   token: 'MTpkYllGU2p3QlFyV25UaEtFTzFmT0lROkliVmRIVk5PTVB1X2hZLXRxc0pNNG8yTkdHV0hhVmpkUkdzaGl0ZF9ROW8',
   vapidPublicKey: 'BImN3k4ecgowM8-WEB3eZCLYMYbHm82TNUeBjgpwH-yL7ZVILAj_4WQYgPuZLbJn9-6-lgxGDRgmFjnvKAI548M='
 })
+
