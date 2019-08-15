@@ -1,0 +1,6 @@
+- name: 'Avocado Toast'
+  path: '/assets/images/toast.png'
+  description: 'click to preview'
+- name: 'I hate mondays'
+  path: '/assets/images/garfield.png'
+  description: 'click to preview'
