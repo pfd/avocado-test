@@ -40,22 +40,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </nav>
 </div>
 <div class="content-container">
-<main><h1>Web Push</h1><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// These are some handy things you can do with Web Notify in the browser. Note that
-</span><span style="color:#75715e">// urbanairship.com uses the UASDK namespace
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e">// Testing Web Push in the console
+<main><h1>Web Push</h1><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// These are some handy things you can do with Web Notify in the browser console.
 </span><span style="color:#75715e"></span>
 <span style="color:#75715e">// Check if the channel is opted in
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">UA</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">sdk</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sdk</span>.<span style="color:#a6e22e">channel</span>.<span style="color:#a6e22e">optedIn</span>))
 
-<span style="color:#75715e">// re-register
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">UA</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">sdk</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sdk</span>.<span style="color:#a6e22e">register</span>()))
-
 <span style="color:#75715e">// opt out. you must re-register after
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">UA</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">sdk</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sdk</span>.<span style="color:#a6e22e">channel</span>.<span style="color:#a6e22e">optOut</span>()))
 
+<span style="color:#75715e">// re-register. If you unregister for some reason, the browser won&#39;t give you the opt-in dialog again, so register the channel with the register method.
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">UA</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">sdk</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sdk</span>.<span style="color:#a6e22e">register</span>()))
+
 <span style="color:#75715e">// add tag
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">UA</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">sdk</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sdk</span>.<span style="color:#a6e22e">channel</span>.<span style="color:#a6e22e">tags</span>.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;happy-hour&#34;</span>)))
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">UA</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">sdk</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sdk</span>.<span style="color:#a6e22e">channel</span>.<span style="color:#a6e22e">tags</span>.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;avocado&#34;</span>)))
 
 <span style="color:#75715e">// Get channel id
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">UASDK</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">sdk</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sdk</span>.<span style="color:#a6e22e">channel</span>.<span style="color:#a6e22e">id</span>))
@@ -64,16 +61,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">UA</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">sdk</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sdk</span>.<span style="color:#a6e22e">channel</span>.<span style="color:#a6e22e">tags</span>.<span style="color:#a6e22e">list</span>))
 
 <span style="color:#75715e">// checks to see if it has the tag
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">UA</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">sdk</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sdk</span>.<span style="color:#a6e22e">channel</span>.<span style="color:#a6e22e">tags</span>.<span style="color:#a6e22e">has</span>(<span style="color:#e6db74">&#34;herp&#34;</span>)))
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">UA</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">sdk</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sdk</span>.<span style="color:#a6e22e">channel</span>.<span style="color:#a6e22e">tags</span>.<span style="color:#a6e22e">has</span>(<span style="color:#e6db74">&#34;avocado&#34;</span>)))
 
 <span style="color:#75715e">// set named user
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">UA</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">sdk</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sdk</span>.<span style="color:#a6e22e">channel</span>.<span style="color:#a6e22e">namedUser</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#34;pfd&#34;</span>)))
 
 <span style="color:#75715e">// get named user
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">UA</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">sdk</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sdk</span>.<span style="color:#a6e22e">channel</span>.<span style="color:#a6e22e">namedUser</span>.<span style="color:#a6e22e">id</span>))
-
-<span style="color:#75715e">// ua.com uses the UASDK namespace
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">UASDK</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">sdk</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sdk</span>.<span style="color:#a6e22e">channel</span>.<span style="color:#a6e22e">namedUser</span>.<span style="color:#a6e22e">id</span>))
 
 <span style="color:#75715e">// get the name of the Custom Event
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">UA</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">sdk</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sdk</span>.<span style="color:#a6e22e">CustomEvent</span>.<span style="color:#a6e22e">name</span>))

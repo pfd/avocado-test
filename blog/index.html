@@ -44,7 +44,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <article>
 <h2><a href="https://avocadotest.com/blog/web-push/">Web Push</a></h2>
 <time>Fri, Jun 21, 2019</time>
-// These are some handy things you can do with Web Notify in the browser. Note that // urbanairship.com uses the UASDK namespace  // Testing Web Push in the console  // Check if the channel is opted in UA.then(sdk =&gt; console.log(sdk.channel.optedIn)) // re-register UA.then(sdk =&gt; console.log(sdk.register())) // opt out. you must re-register after UA.then(sdk =&gt; console.log(sdk.channel.optOut())) // add tag UA.then(sdk =&gt; console.log(sdk.channel.tags.add(&#34;happy-hour&#34;))) // Get channel id UASDK.then(sdk =&gt; console.
+// These are some handy things you can do with Web Notify in the browser console.  // Check if the channel is opted in UA.then(sdk =&gt; console.log(sdk.channel.optedIn)) // opt out. you must re-register after UA.then(sdk =&gt; console.log(sdk.channel.optOut())) // re-register. If you unregister for some reason, the browser won&#39;t give you the opt-in dialog again, so register the channel with the register method. UA.then(sdk =&gt; console.log(sdk.register())) // add tag UA.then(sdk =&gt; console.
 </article>
 
 
