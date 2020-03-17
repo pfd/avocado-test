@@ -12,6 +12,18 @@
     
     
     <item>
+      <title>Post Install</title>
+      <link>https://avocadotest.com/posts/post-install/</link>
+      <pubDate>Sat, 30 Nov 2019 15:38:35 -0800</pubDate>
+      
+      <guid>https://avocadotest.com/posts/post-install/</guid>
+      <description>  Post-install page Thank you!
+Let&amp;rsquo;s see if this page delivers the right value to the reporting data
+Note: you gotta have the js lib installed on this page for it to work.
+ window.sheerId.conversion.convert({ amount: 42 });  </description>
+    </item>
+    
+    <item>
       <title>Web Push</title>
       <link>https://avocadotest.com/blog/web-push/</link>
       <pubDate>Fri, 21 Jun 2019 08:09:57 -0700</pubDate>

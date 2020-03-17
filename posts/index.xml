@@ -6,10 +6,22 @@
     <description>Recent content in Posts on Avocado Test</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 17 Jun 2019 19:05:51 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 30 Nov 2019 15:38:35 -0800</lastBuildDate>
     
 	<atom:link href="https://avocadotest.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Post Install</title>
+      <link>https://avocadotest.com/posts/post-install/</link>
+      <pubDate>Sat, 30 Nov 2019 15:38:35 -0800</pubDate>
+      
+      <guid>https://avocadotest.com/posts/post-install/</guid>
+      <description>  Post-install page Thank you!
+Let&amp;rsquo;s see if this page delivers the right value to the reporting data
+Note: you gotta have the js lib installed on this page for it to work.
+ window.sheerId.conversion.convert({ amount: 42 });  </description>
+    </item>
     
     <item>
       <title>Hello_world</title>
