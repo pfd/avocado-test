@@ -38,3 +38,9 @@
 </script>
 <script type="text/javascript" src="airship-html-prompt.min.js"></script>
 
+<script type="text/javascript">
+  UA.then(function(sdk) {
+    sdk.plugins.load('https://aswpsdkus.com/notify/v1/ua-html-prompt.min.js')
+      .then(plugin => plugin.myMethod())
+ })
+</script>
