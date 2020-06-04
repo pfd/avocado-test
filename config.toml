@@ -1,7 +1,7 @@
 baseURL = "https://avocadotest.com/"
 languageCode = "en-us"
 title = "Avocado Test"
-theme = "hugo-theme-techdoc"
+theme = "docsy"
 
 [params]
 languageCode = "en-us"
