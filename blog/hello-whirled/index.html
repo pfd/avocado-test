@@ -63,7 +63,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <h2 id="whirled-peas">Whirled Peas</h2>
 
-<p>Hello</p>
+<!-- Web Notify button -->
+
+<p><button id="register">Sign up for notifications</button>
+<script>
+   document.getElementById(&lsquo;register&rsquo;).addEventListener(&lsquo;click&rsquo;, function () {
+         UA.then(function (sdk) {
+            sdk.register()
+         })
+   })
+</script></p>
 <footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
 </footer>
 </main><div class="sidebar">

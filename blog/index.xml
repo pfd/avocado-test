@@ -26,7 +26,7 @@
       <pubDate>Thu, 20 Jun 2019 19:26:31 -0700</pubDate>
       
       <guid>https://avocadotest.com/blog/hello-whirled/</guid>
-      <description>Whirled Peas Hello</description>
+      <description>Whirled Peas Sign up for notifications  document.getElementById(&amp;lsquo;register&amp;rsquo;).addEventListener(&amp;lsquo;click&amp;rsquo;, function () { UA.then(function (sdk) { sdk.register() }) })</description>
     </item>
     
   </channel>
