@@ -1,112 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Avocado Test</title>
+    <title>Goldydocs – Goldydocs</title>
     <link>https://avocadotest.com/</link>
-    <description>Recent content on Avocado Test</description>
+    <description>Recent content on Goldydocs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Oct 2017 15:26:15 +0000</lastBuildDate>
     
-	<atom:link href="https://avocadotest.com/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://avocadotest.com/index.xml" rel="self" type="application/rss+xml" />
     
     
-    <item>
-      <title>Post Install</title>
-      <link>https://avocadotest.com/posts/post-install/</link>
-      <pubDate>Sat, 30 Nov 2019 15:38:35 -0800</pubDate>
       
-      <guid>https://avocadotest.com/posts/post-install/</guid>
-      <description>  Post-install page Thank you!
-Let&amp;rsquo;s see if this page delivers the right value to the reporting data
-Note: you gotta have the js lib installed on this page for it to work.
- window.sheerId.conversion.convert({ amount: 42 });  </description>
-    </item>
-    
-    <item>
-      <title>Web Push</title>
-      <link>https://avocadotest.com/blog/web-push/</link>
-      <pubDate>Fri, 21 Jun 2019 08:09:57 -0700</pubDate>
       
-      <guid>https://avocadotest.com/blog/web-push/</guid>
-      <description>// These are some handy things you can do with Web Notify in the browser console.  // Check if the channel is opted in UA.then(sdk =&amp;gt; console.log(sdk.channel.optedIn)) // opt out. you must re-register after UA.then(sdk =&amp;gt; console.log(sdk.channel.optOut())) // re-register. If you unregister for some reason, the browser won&amp;#39;t give you the opt-in dialog again, so register the channel with the register method. UA.then(sdk =&amp;gt; console.log(sdk.register())) // add tag UA.then(sdk =&amp;gt; console.</description>
-    </item>
     
-    <item>
-      <title>Hello Whirled</title>
-      <link>https://avocadotest.com/blog/hello-whirled/</link>
-      <pubDate>Thu, 20 Jun 2019 19:26:31 -0700</pubDate>
-      
-      <guid>https://avocadotest.com/blog/hello-whirled/</guid>
-      <description>Whirled Peas Sign up for notifications  document.getElementById(&amp;lsquo;register&amp;rsquo;).addEventListener(&amp;lsquo;click&amp;rsquo;, function () { UA.then(function (sdk) { sdk.register() }) })</description>
-    </item>
-    
-    <item>
-      <title>Installation</title>
-      <link>https://avocadotest.com/getting-started/installation/</link>
-      <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
-      
-      <guid>https://avocadotest.com/getting-started/installation/</guid>
-      <description>Download Hugo theme If you have git installed, you can do the following at the command-line-interface within the Hugo directory:
-cd themes git clone https://github.com/thingsym/hugo-theme-techdoc.git  For more information read the Hugo documentation.
-Configure You may specify options in config.toml (or config.yaml/config.json) of your site to make use of this theme&amp;rsquo;s features.
-For an example of config.toml, see config.toml in exampleSite.
-See the Configuration documentation.
-Preview site To preview your site, run Hugo&amp;rsquo;s built-in local server.</description>
-    </item>
-    
-    <item>
-      <title>Hello_world</title>
-      <link>https://avocadotest.com/posts/hello_world/</link>
-      <pubDate>Tue, 17 Oct 2017 14:00:45 +0000</pubDate>
-      
-      <guid>https://avocadotest.com/posts/hello_world/</guid>
-      <description>aaaaaa bbbbbb
-vvvv
-aaa</description>
-    </item>
-    
-    <item>
-      <title>Configuration</title>
-      <link>https://avocadotest.com/getting-started/configuration/</link>
-      <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
-      
-      <guid>https://avocadotest.com/getting-started/configuration/</guid>
-      <description>You may specify options in config.toml (or config.yaml/config.json) of your site to make use of this theme’s features.
-For an example of config.toml, see config.toml in exampleSite.
-Params # Souce Code repository section description = &amp;quot;put your description&amp;quot; github_repository = &amp;quot;https://github.com/thingsym/hugo-theme-techdoc&amp;quot; version = &amp;quot;0.2.2&amp;quot; # Documentation repository section # documentation repository (set edit link to documentation repository) github_doc_repository = &amp;quot;https://github.com/thingsym/hugo-theme-techdoc&amp;quot; # Analytic section google_analytics_id = &amp;quot;&amp;quot; # Your Google Analytics tracking id tag_manager_container_id = &amp;quot;&amp;quot; # Your Google Tag Manager container id google_site_verification = &amp;quot;&amp;quot; # Your Google Site Verification # Theme settings section dateformat = &amp;quot;&amp;quot; # default &amp;quot;2 Jan 2006&amp;quot; # path name excluded from document menu menu_exclusion = [&amp;quot;archives&amp;quot;, &amp;quot;blog&amp;quot;, &amp;quot;entry&amp;quot;, &amp;quot;post&amp;quot;, &amp;quot;posts&amp;quot;]  description The document summary</description>
-    </item>
-    
-    <item>
-      <title>Another Post</title>
-      <link>https://avocadotest.com/posts/another-post/</link>
-      <pubDate>Mon, 17 Jun 2019 19:05:51 -0700</pubDate>
-      
-      <guid>https://avocadotest.com/posts/another-post/</guid>
-      <description>This is the third in a series of boring posts. Checking to see if the Forestry deploy does not run when i run my publish script this time.
-Update: updating this post to see where the HEAD is after setting up the gh-pages branch.</description>
-    </item>
-    
-    <item>
-      <title>Cool Post</title>
-      <link>https://avocadotest.com/posts/cool-post/</link>
-      <pubDate>Mon, 17 Jun 2019 18:13:38 -0700</pubDate>
-      
-      <guid>https://avocadotest.com/posts/cool-post/</guid>
-      <description>This is my second post, the one after i added This publish script.
- Sign up for notifications  document.getElementById(&#39;register&#39;).addEventListener(&#39;click&#39;, function () { UA.then(function (sdk) { sdk.register() }) })   </description>
-    </item>
-    
-    <item>
-      <title>My First Post</title>
-      <link>https://avocadotest.com/posts/my-first-post/</link>
-      <pubDate>Mon, 17 Jun 2019 23:02:22 +0000</pubDate>
-      
-      <guid>https://avocadotest.com/posts/my-first-post/</guid>
-      <description>cool post!
-thanks fam
-gotchu</description>
-    </item>
     
   </channel>
 </rss>
