@@ -1,0 +1,46 @@
+<script type="text/javascript">
+   // 86acbd31cd7c09cf30acb66d2fbedc91daa48b86:1591233949.7106426
+   !function(n,r,e,t,c){var i,o="Promise"in n,u={then:function(){return u},catch:function(n){
+   return n(new Error("Airship SDK Error: Unsupported browser")),u}},s=o?new Promise((function(n,r){i=function(e,t){e?r(e):n(t)}})):u
+   ;s._async_setup=function(n){if(o)try{i(null,n(c))}catch(n){i(n)}},n[t]=s;var a=r.createElement("script");a.src=e,a.async=!0,a.id="_uasdk",
+   a.rel=t,r.head.appendChild(a)}(window,document,'https://aswpsdkus.com/notify/v1/ua-sdk.min.js',
+     'UA', {
+       vapidPublicKey: 'BImN3k4ecgowM8-WEB3eZCLYMYbHm82TNUeBjgpwH-yL7ZVILAj_4WQYgPuZLbJn9-6-lgxGDRgmFjnvKAI548M=',
+       appKey: 'dbYFSjwBQrWnThKEO1fOIQ',
+       token: 'MTpkYllGU2p3QlFyV25UaEtFTzFmT0lROkliVmRIVk5PTVB1X2hZLXRxc0pNNG8yTkdHV0hhVmpkUkdzaGl0ZF9ROW8'
+     });
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{{ hugo.Generator }}
+{{ if eq (getenv "HUGO_ENV") "production" }}
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+{{ else }}
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+{{ end }}
+{{ range .AlternativeOutputFormats -}}
+<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+{{ end -}}
+{{ partialCached "favicons.html" . }}
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
+{{- template "_internal/opengraph.html" . -}}
+{{- template "_internal/google_news.html" . -}}
+{{- template "_internal/schema.html" . -}}
+{{- template "_internal/twitter_cards.html" . -}}
+{{ if eq (getenv "HUGO_ENV") "production" }}
+{{ template "_internal/google_analytics_async.html" . }}
+{{ end }}
+{{ partialCached "head-css.html" . "asdf" }}
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+{{ if .Site.Params.offlineSearch }}
+<script
+  src="https://unpkg.com/lunr@2.3.8/lunr.min.js"
+  integrity="sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY"
+  crossorigin="anonymous"></script>
+{{end}}
+{{ partial "hooks/head-end.html" . }}
+
+   
