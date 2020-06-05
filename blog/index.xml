@@ -15,28 +15,6 @@
     
     
     <item>
-      <title>Blog: Post Install</title>
-      <link>https://avocadotest.com/blog/2019/11/30/post-install/</link>
-      <pubDate>Sat, 30 Nov 2019 15:38:35 -0800</pubDate>
-      
-      <guid>https://avocadotest.com/blog/2019/11/30/post-install/</guid>
-      <description>
-        
-        
-        &lt;script src=&#34;https://cdn.jsdelivr.net/npm/@sheerid/jslib@1.16.0/sheerid.js&#34; integrity=&#34;sha256-UqG92xWyrFYxP2Iux2lh+RMdhexJuANrWr9h+rSnRyU=&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;
-&lt;h2 id=&#34;post-install-page&#34;&gt;Post-install page&lt;/h2&gt;
-&lt;p&gt;Thank you!&lt;/p&gt;
-&lt;p&gt;Let&amp;rsquo;s see if this page delivers the right value to the reporting data&lt;/p&gt;
-&lt;p&gt;Note: you gotta have the js lib installed on this page for it to work.&lt;/p&gt;
-&lt;script&gt;
-    window.sheerId.conversion.convert({ amount: 42 });
-&lt;/script&gt;&lt;blockquote&gt;
-&lt;/blockquote&gt;
-
-      </description>
-    </item>
-    
-    <item>
       <title>Blog: Web Push</title>
       <link>https://avocadotest.com/blog/2019/06/21/web-push/</link>
       <pubDate>Fri, 21 Jun 2019 08:09:57 -0700</pubDate>
@@ -97,23 +75,6 @@
         
         &lt;h2 id=&#34;whirled-peas&#34;&gt;Whirled Peas&lt;/h2&gt;
 &lt;p&gt;Hello&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: Hello_world</title>
-      <link>https://avocadotest.com/blog/2017/10/17/hello_world/</link>
-      <pubDate>Tue, 17 Oct 2017 14:00:45 +0000</pubDate>
-      
-      <guid>https://avocadotest.com/blog/2017/10/17/hello_world/</guid>
-      <description>
-        
-        
-        &lt;p&gt;aaaaaa
-bbbbbb&lt;/p&gt;
-&lt;p&gt;vvvv&lt;/p&gt;
-&lt;p&gt;aaa&lt;/p&gt;
 
       </description>
     </item>
