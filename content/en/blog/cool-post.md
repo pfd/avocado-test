@@ -3,10 +3,12 @@ title: "Cool Post"
 description: "Cool description"
 date: 2019-06-17T18:13:38-07:00
 draft: false
-menu: main
+menu: null
 ---
 
 This is my second post, the one after i added [This publish script](https://gohugo.io/hosting-and-deployment/hosting-on-github/).
+
+hello
 
 
 <div>
