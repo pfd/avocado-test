@@ -1,15 +1,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Avocado Test – Goldydocs</title>
-    <link>https://avocadotest.com/</link>
-    <description>Recent content in Goldydocs on Avocado Test</description>
+    <title>Avocado Test – Docsy Blog</title>
+    <link>https://avocadotest.com/blog/</link>
+    <description>Recent content in Docsy Blog on Avocado Test</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	  <atom:link href="https://avocadotest.com/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://avocadotest.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
       
+        
       
     
     
