@@ -12,6 +12,16 @@ menu:
 This is a placeholder page that shows you how to use this template site.
 {{% /pageinfo %}}
 
+## Setup
+
+When updating the submodule, use
+
+```
+git submodule update --init --recursive --depth 1
+```
+
+if you have trouble, because the theme has two embedded modules.
+
 
 This section is where the user documentation for your project lives - all the information your users need to understand and successfully use your project.
 
