@@ -19,6 +19,7 @@
 
 <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
+<link rel="alternate" type="application/rss&#43;xml" href="https://avocadotest.com/blog/index.xml">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -32,23 +33,15 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Web Push | Avocado Test</title><meta property="og:title" content="Web Push" />
-<meta property="og:description" content="Trying out web push things." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://avocadotest.com/en/blog/web-push/" />
-<meta property="article:published_time" content="2019-06-21T08:09:57-07:00" />
-<meta property="article:modified_time" content="2020-06-05T08:17:18-07:00" /><meta property="og:site_name" content="Avocado Test" />
-<meta itemprop="name" content="Web Push">
-<meta itemprop="description" content="Trying out web push things.">
-<meta itemprop="datePublished" content="2019-06-21T08:09:57-07:00" />
-<meta itemprop="dateModified" content="2020-06-05T08:17:18-07:00" />
-<meta itemprop="wordCount" content="151">
-
-
-
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Web Push"/>
-<meta name="twitter:description" content="Trying out web push things."/>
+<title>Docsy Blog | Avocado Test</title><meta property="og:title" content="Docsy Blog" />
+<meta property="og:description" content="Testing Avocados" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://avocadotest.com/blog/" />
+<meta property="og:site_name" content="Avocado Test" />
+<meta itemprop="name" content="Docsy Blog">
+<meta itemprop="description" content="Testing Avocados"><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Docsy Blog"/>
+<meta name="twitter:description" content="Testing Avocados"/>
 
 
 
@@ -67,7 +60,7 @@
 
    
   </head>
-  <body class="td-page">
+  <body class="td-section td-blog">
     <header>
       
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -85,7 +78,7 @@
 				
 				
 				
-				<a class="nav-link" href="/en/docs/" ><span>Documentation</span></a>
+				<a class="nav-link" href="/docs/" ><span>Documentation</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -95,7 +88,7 @@
 				
 				
 				
-				<a class="nav-link active" href="/en/blog/" ><span class="active">Blog</span></a>
+				<a class="nav-link active" href="/blog/" ><span class="active">Blog</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -105,7 +98,7 @@
 				
 				
 				
-				<a class="nav-link" href="/en/community/" ><span>Community</span></a>
+				<a class="nav-link" href="/community/" ><span>Community</span></a>
 			</li>
 			
 			
@@ -132,51 +125,244 @@
 </nav>
 
     </header>
-    <div class="container-fluid td-default td-outer">
-      <main role="main" class="td-main">
-        
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// These are some handy things you can do with Web Notify in the browser console.
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e">// Check if the channel is opted in
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">UA</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">sdk</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sdk</span>.<span style="color:#a6e22e">channel</span>.<span style="color:#a6e22e">optedIn</span>))
-
-<span style="color:#75715e">// opt out. you must re-register after
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">UA</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">sdk</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sdk</span>.<span style="color:#a6e22e">channel</span>.<span style="color:#a6e22e">optOut</span>()))
-
-<span style="color:#75715e">// re-register. If you unregister for some reason, the browser won&#39;t give you the opt-in dialog again, so register the channel with the register method.
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">UA</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">sdk</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sdk</span>.<span style="color:#a6e22e">register</span>()))
-
-<span style="color:#75715e">// add tag
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">UA</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">sdk</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sdk</span>.<span style="color:#a6e22e">channel</span>.<span style="color:#a6e22e">tags</span>.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;avocado&#34;</span>)))
-
-<span style="color:#75715e">// Get channel id
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">UASDK</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">sdk</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sdk</span>.<span style="color:#a6e22e">channel</span>.<span style="color:#a6e22e">id</span>))
-
-<span style="color:#75715e">// List tags
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">UA</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">sdk</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sdk</span>.<span style="color:#a6e22e">channel</span>.<span style="color:#a6e22e">tags</span>.<span style="color:#a6e22e">list</span>))
-
-<span style="color:#75715e">// checks to see if it has the tag
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">UA</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">sdk</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sdk</span>.<span style="color:#a6e22e">channel</span>.<span style="color:#a6e22e">tags</span>.<span style="color:#a6e22e">has</span>(<span style="color:#e6db74">&#34;avocado&#34;</span>)))
-
-<span style="color:#75715e">// set named user
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">UA</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">sdk</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sdk</span>.<span style="color:#a6e22e">channel</span>.<span style="color:#a6e22e">namedUser</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#34;pfd&#34;</span>)))
-
-<span style="color:#75715e">// get named user
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">UA</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">sdk</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sdk</span>.<span style="color:#a6e22e">channel</span>.<span style="color:#a6e22e">namedUser</span>.<span style="color:#a6e22e">id</span>))
-
-<span style="color:#75715e">// get the name of the Custom Event
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">UA</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">sdk</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sdk</span>.<span style="color:#a6e22e">CustomEvent</span>.<span style="color:#a6e22e">name</span>))
-
-<span style="color:#75715e">// creates a new Consumed Content event using the template, with a value, a key/value, and an id, then tracks it
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">UA</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">sdk</span> =&gt; {
-  <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">sdk</span>.<span style="color:#a6e22e">CustomEvent</span>.<span style="color:#a6e22e">templates</span>.<span style="color:#a6e22e">media</span>.<span style="color:#a6e22e">ConsumedContentEvent</span>(<span style="color:#ae81ff">23</span>, {<span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>}, <span style="color:#e6db74">&#39;2234234&#39;</span>).<span style="color:#a6e22e">track</span>()
-})
-</code></pre></div>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
 
 
 
-      </main>
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  
+  <nav class="collapse td-sidebar-nav pt-2 pl-4" id="td-section-nav">
+    
+    <div class="nav-item dropdown d-block d-lg-none">
+      
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	English
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/no/">Norsk</a>
+	
+</div>
+    </div>
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/blog/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Blog</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="blog">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20190621web-push" href="/blog/2019/06/21/web-push/">Web Push</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20190620hello-whirled" href="/blog/2019/06/20/hello-whirled/">Hello Whirled</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20190617another-post" href="/blog/2019/06/17/another-post/">Another Post</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20190617cool-post" href="/blog/2019/06/17/cool-post/">Cool Post</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20190617my-first-post" href="/blog/2019/06/17/my-first-post/">My First Post</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+          </div>
+          <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+            
+
+
+
+
+
+
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+
+
+
+
+
+<a href="https://github.com/google/docsy-example/edit/master/content/en/blog/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/google/docsy-example/issues/new?title=Docsy%20Blog" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+
+
+<a href="https://github.com/google/docsy/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+
+</div>
+
+
+
+
+
+
+
+
+          </div>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5 pr-md-4" role="main">
+            <a class="btn btn-lg -bg-orange td-rss-button d-none d-lg-block" href="https://avocadotest.com/blog/index.xml" target="_blank">
+              RSS <i class="fa fa-rss ml-2 "></i>
+            </a>
+            
+
+
+
+
+
+
+
+<div class="row">
+	<div class="col-12">
+		
+		<h2>Posts in 2019</h2>
+		<ul class="list-unstyled mt-4">
+			
+			<li class="media mb-4">
+				<div class="media-body">
+					<h5 class="mt-0 mb-1"><a href="/blog/2019/06/21/web-push/">Web Push</a></h5>
+					<p class="mb-2 mb-md-3"><small class="text-muted">Friday, June 21, 2019 in Blog</small></p>
+					
+
+
+
+
+
+					<p class="pt-0 mt-0">// These are some handy things you can do with Web Notify in the browser console.  // Check if the channel is opted in UA.then(sdk =&gt; console.log(sdk.channel.optedIn)) // opt out. you must re-register after UA.then(sdk =&gt; …</p>
+					<p class="pt-0"><a href="/blog/2019/06/21/web-push/">Read more</a></p>
+				</div>
+			</li>
+			
+			<li class="media mb-4">
+				<div class="media-body">
+					<h5 class="mt-0 mb-1"><a href="/blog/2019/06/20/hello-whirled/">Hello Whirled</a></h5>
+					<p class="mb-2 mb-md-3"><small class="text-muted">Thursday, June 20, 2019 in Blog</small></p>
+					
+
+
+
+
+
+					<p class="pt-0 mt-0">Whirled Peas Hello
+</p>
+					<p class="pt-0"><a href="/blog/2019/06/20/hello-whirled/">Read more</a></p>
+				</div>
+			</li>
+			
+			<li class="media mb-4">
+				<div class="media-body">
+					<h5 class="mt-0 mb-1"><a href="/blog/2019/06/17/another-post/">Another Post</a></h5>
+					<p class="mb-2 mb-md-3"><small class="text-muted">Monday, June 17, 2019 in Blog</small></p>
+					
+
+
+
+
+
+					<p class="pt-0 mt-0">This is the third in a series of boring posts. Checking to see if the Forestry deploy does not run when i run my publish script this time.
+Update: updating this post to see where the HEAD is after setting up the gh-pages branch.
+</p>
+					<p class="pt-0"><a href="/blog/2019/06/17/another-post/">Read more</a></p>
+				</div>
+			</li>
+			
+			<li class="media mb-4">
+				<div class="media-body">
+					<h5 class="mt-0 mb-1"><a href="/blog/2019/06/17/cool-post/">Cool Post</a></h5>
+					<p class="mb-2 mb-md-3"><small class="text-muted">Monday, June 17, 2019 in Blog</small></p>
+					
+
+
+
+
+
+					<p class="pt-0 mt-0">This is my second post, the one after i added This publish script.
+hello
+ Sign up for notifications  document.getElementById('register').addEventListener('click', function () { UA.then(function (sdk) { sdk.register() }) })  </p>
+					<p class="pt-0"><a href="/blog/2019/06/17/cool-post/">Read more</a></p>
+				</div>
+			</li>
+			
+			<li class="media mb-4">
+				<div class="media-body">
+					<h5 class="mt-0 mb-1"><a href="/blog/2019/06/17/my-first-post/">My First Post</a></h5>
+					<p class="mb-2 mb-md-3"><small class="text-muted">Monday, June 17, 2019 in Blog</small></p>
+					
+
+
+
+
+
+					<p class="pt-0 mt-0">cool post!
+thanks fam
+gotchu
+</p>
+					<p class="pt-0"><a href="/blog/2019/06/17/my-first-post/">Read more</a></p>
+				</div>
+			</li>
+			
+		</ul>
+		
+	</div>
+</div>
+<div class="row pl-2 pt-2">
+	<div class="col">
+		
+
+
+	</div>
+</div>
+
+          </main>
+        </div>
+      </div>
       
 <footer class="bg-dark py-5 row d-print-none">
   <div class="container-fluid mx-sm-5">
