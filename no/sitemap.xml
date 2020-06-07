@@ -16,4 +16,32 @@
                 />
   </url>
   
+  <url>
+    <loc>https://avocadotest.com/no/categories/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://avocadotest.com/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="no"
+                href="https://avocadotest.com/no/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://avocadotest.com/no/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://avocadotest.com/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="no"
+                href="https://avocadotest.com/no/tags/"
+                />
+  </url>
+  
 </urlset>
