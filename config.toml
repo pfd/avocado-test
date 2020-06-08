@@ -10,18 +10,18 @@ theme = ["docsy"]
 # Will give values to .Lastmod etc.
 enableGitInfo = true
 
-[outputFormats.Algolia]
-  baseName = "algolia"
-  isPlainText = true
-  mediaType = "application/json"
-  notAlternative = true
-
-[params.algolia]
-  vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
-  params = ["categories", "tags"]
-
-[outputs]
-  home = ["HTML", "RSS", "Algolia"]
+# [outputFormats.Algolia]
+#   baseName = "algolia"
+#   isPlainText = true
+#   mediaType = "application/json"
+#   notAlternative = true
+# 
+# [params.algolia]
+#   vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
+#   params = ["categories", "tags"]
+# 
+# [outputs]
+#   home = ["HTML", "RSS", "Algolia"]
 
 # Language settings
 contentDir = "content/en"
