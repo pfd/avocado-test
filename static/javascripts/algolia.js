@@ -38,3 +38,31 @@ var hitTemplate =
 '<div class="List-title">{{{_highlightResult.title.value}}}</div>' +
 "</a>" +
 '<div class="List-summary">{{{summary}}}</div>';
+
+
+// Parse options to instantsearch
+const search = instantsearch(options);
+
+// initialize SearchBox
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: "#search-box",
+    placeholder: "Search for post",
+    reset: false,
+    cssClasses: {
+      root: "Search-box-container",
+      input: "Search-box-input",
+    },
+  })
+);
+
+
+// initialize RefinementList
+search.addWidget(
+  instantsearch.widgets.refinementList({
+    container: "#refinement-list",
+    attributeName: "tags",
+  })
+);
+// make all this stuff happen
+search.start();
