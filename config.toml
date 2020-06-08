@@ -7,6 +7,15 @@ enableRobotsTXT = true
 # Hugo allows theme composition (and inheritance). The precedence is from left to right.
 theme = ["docsy"]
 
+# [outputFormats.Algolia]
+# baseName = "algolia"
+# isPlainText = true
+# mediaType = "application/json"
+# notAlternative = true
+# 
+# [outputs]
+# home = ["HTML", "RSS", "Algolia"]
+
 # Will give values to .Lastmod etc.
 enableGitInfo = true
 
