@@ -3,3 +3,43 @@
 Add styles or override variables from the theme here.
 
 */
+
+#body .nav-tabs {
+   position: unset;
+   width: unset;
+}
+
+.tab-content>.tab-pane {
+   display: none;
+}
+
+.tab-pane {
+   padding: 3px 0px;
+}
+
+.tab-pane {
+   padding: 3px 0px;
+}
+
+.tab-content>.active {
+   display: block;
+}
+
+.nav-tabs {
+   color: #0f0f0f;
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
+}
+
+.nav-tabs>li {
+   color: #0f0f0f;
+   float: left;
+}
+
+.nav-tabs>li>a {
+   display: block;
+   padding: 5px 10px;
+   font-size: 14px;
+}
