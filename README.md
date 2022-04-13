@@ -1,2 +1,0 @@
-# avocado-test
-Testing Avocados
