@@ -11,7 +11,7 @@ linkTitle = "Goldydocs"
 	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://github.com/google/docsy-example">
 		Download <i class="fab fa-github ml-2 "></i>
 	</a>
-	<p class="lead mt-5">Guacs before docs</p>
+	<p class="lead mt-5">cool</p>
 	{{< blocks/link-down color="info" >}}
 </div>
 {{< /blocks/cover >}}
