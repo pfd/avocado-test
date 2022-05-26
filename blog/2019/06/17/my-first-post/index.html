@@ -2,30 +2,100 @@
 <html lang="en" class="no-js">
   <head>
     <script type="text/javascript">
-   
-   !function(n,r,e,t,c){var i,o="Promise"in n,u={then:function(){return u},catch:function(n){
-   return n(new Error("Airship SDK Error: Unsupported browser")),u}},s=o?new Promise((function(n,r){i=function(e,t){e?r(e):n(t)}})):u
-   ;s._async_setup=function(n){if(o)try{i(null,n(c))}catch(n){i(n)}},n[t]=s;var a=r.createElement("script");a.src=e,a.async=!0,a.id="_uasdk",
-   a.rel=t,r.head.appendChild(a)}(window,document,'https://aswpsdkus.com/notify/v1/ua-sdk.min.js',
-     'UA', {
-       vapidPublicKey: 'BImN3k4ecgowM8-WEB3eZCLYMYbHm82TNUeBjgpwH-yL7ZVILAj_4WQYgPuZLbJn9-6-lgxGDRgmFjnvKAI548M=',
-       appKey: 'dbYFSjwBQrWnThKEO1fOIQ',
-       token: 'MTpkYllGU2p3QlFyV25UaEtFTzFmT0lROkliVmRIVk5PTVB1X2hZLXRxc0pNNG8yTkdHV0hhVmpkUkdzaGl0ZF9ROW8'
-     });
+    ! function() {
+        var e = window.rudderanalytics = window.rudderanalytics || [];
+        e.methods = ["load", "page", "track", "identify", "alias", "group", "ready", "reset", "getAnonymousId", "setAnonymousId"], e.factory = function(t) {
+            return function() {
+                var r = Array.prototype.slice.call(arguments);
+                return r.unshift(t), e.push(r), e
+            }
+        };
+        for (var t = 0; t < e.methods.length; t++) {
+            var r = e.methods[t];
+            e[r] = e.factory(r)
+        }
+        e.loadJS = function(e, t) {
+                var r = document.createElement("script");
+                r.type = "text/javascript", r.async = !0, r.src = "https://cdn.rudderlabs.com/v1.1/rudder-analytics.min.js";
+                var a = document.getElementsByTagName("script")[0];
+                a.parentNode.insertBefore(r, a)
+            }, e.loadJS(),
+            e.load('27qUZOBSzK9r75bjUWyivWGpHXz', 'https://rudderstacydw.dataplane.rudderstack.com'),
+            e.page()
+    }();
+</script>
+<script type="text/javascript">
+    
+    ! function(n, r, e, t, c) {
+        var i, o = "Promise" in n,
+            u = {
+                then: function() {
+                    return u
+                },
+                catch: function(n) {
+                    return n(new Error("Airship SDK Error: Unsupported browser")), u
+                }
+            },
+            s = o ? new Promise((function(n, r) {
+                i = function(e, t) {
+                    e ? r(e) : n(t)
+                }
+            })) : u;
+        s._async_setup = function(n) {
+            if (o) try {
+                i(null, n(c))
+            } catch (n) {
+                i(n)
+            }
+        }, n[t] = s;
+        var a = r.createElement("script");
+        a.src = e, a.async = !0, a.id = "_uasdk",
+            a.rel = t, r.head.appendChild(a)
+    }(window, document, 'https://aswpsdkus.com/notify/v1/ua-sdk.min.js',
+        'UA', {
+            vapidPublicKey: 'BImN3k4ecgowM8-WEB3eZCLYMYbHm82TNUeBjgpwH-yL7ZVILAj_4WQYgPuZLbJn9-6-lgxGDRgmFjnvKAI548M=',
+            appKey: 'dbYFSjwBQrWnThKEO1fOIQ',
+            token: 'MTpkYllGU2p3QlFyV25UaEtFTzFmT0lROkliVmRIVk5PTVB1X2hZLXRxc0pNNG8yTkdHV0hhVmpkUkdzaGl0ZF9ROW8'
+        });
 </script>
 <script>
-  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.13.1";
-  analytics.load("IvOJRR4UpjiWbt9K6ssIzYx55KcSIFuh");
-  analytics.page();
-  }}();
+    ! function() {
+        var analytics = window.analytics = window.analytics || [];
+        if (!analytics.initialize)
+            if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice.");
+            else {
+                analytics.invoked = !0;
+                analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware"];
+                analytics.factory = function(e) {
+                    return function() {
+                        var t = Array.prototype.slice.call(arguments);
+                        t.unshift(e);
+                        analytics.push(t);
+                        return analytics
+                    }
+                };
+                for (var e = 0; e < analytics.methods.length; e++) {
+                    var key = analytics.methods[e];
+                    analytics[key] = analytics.factory(key)
+                }
+                analytics.load = function(key, e) {
+                    var t = document.createElement("script");
+                    t.type = "text/javascript";
+                    t.async = !0;
+                    t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";
+                    var n = document.getElementsByTagName("script")[0];
+                    n.parentNode.insertBefore(t, n);
+                    analytics._loadOptions = e
+                };
+                analytics.SNIPPET_VERSION = "4.13.1";
+                analytics.load("IvOJRR4UpjiWbt9K6ssIzYx55KcSIFuh");
+                analytics.page();
+            }
+    }();
 </script>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.96.0" />
-
-<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-
-
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta name="generator" content="Hugo 0.97.3" /> 
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">  
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
 <link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
@@ -58,8 +128,7 @@ gotchu"><meta itemprop="datePublished" content="2019-06-17T23:02:22+00:00" />
 <meta name="twitter:description" content="cool post!
 thanks fam
 gotchu"/>
-
-
+ 
 
 
 
@@ -67,14 +136,8 @@ gotchu"/>
 <link href="/scss/main.min.937c13c28665d99b02207771e5feb84de69365957c53b56e95bea4079566e84a.css" rel="stylesheet" integrity="">
 
 
-<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-
-
-
-
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+ 
   </head>
   <body class="td-page td-blog">
     <header>
@@ -380,7 +443,7 @@ gotchu"/>
 
 
 
-<script src="/js/main.min.e43e41a382e951560647a90021b0c2aed5815c0f98c87def2b6e850744c9e1ab.js" integrity="sha256-5D5Bo4LpUVYGR6kAIbDCrtWBXA&#43;YyH3vK26FB0TJ4as=" crossorigin="anonymous"></script>
+<script src="/js/main.min.a3a03603e1b69f07b4522c938d60b469168078b42ee919d004073b14ba377b5d.js" integrity="sha256-o6A2A&#43;G2nwe0UiyTjWC0aRaAeLQu6RnQBAc7FLo3e10=" crossorigin="anonymous"></script>
 
 
 

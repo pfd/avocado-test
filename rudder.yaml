@@ -1,0 +1,1439 @@
+openapi: 3.0.0
+info:
+  title: Rudder API v2
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:{port}/v2
+    description: |-
+      Local instance of Rudder API, used during development.
+    variables:
+      port:
+        default: '5555'
+        description: Port where API is deployed
+  - url: https://api.rudderstack.com/v2
+    description: |-
+      Public instance of Rudder API, used in production.
+
+components:
+  securitySchemes:
+    accessToken:
+      type: http
+      scheme: bearer
+      description: |-
+        Use Bearer token authentication, using the an access token generated
+        by [rudderstack](https://app.rudderstack.com) web application.
+  schemas:
+    ErrorModel:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: string
+          description: |-
+            Short message describing an error that occurred.
+        code:
+          type: string
+          description: |-
+            Optional code that indicates a specific error type. Useful to communicate with
+            support for easier debugging. 
+        details:
+          type: object
+          description: |-
+            Option error specific object, with additional details related to the error.
+      example: {
+        'error': 'something went wrong',
+        'code': '0123',
+        'details': {
+          'some key': 'some value'
+        }
+      }
+
+    PagingModel:
+      type: object
+      description: |-
+        Information about pages available to list calls that support pagination.
+      properties:
+        total:
+          type: integer
+          example: 200
+          description: |-
+            Total number of items in the listed collection.
+        next:
+          type: string
+          example: '/<collection path>?page=2'
+          description: |-
+            API path that returns the next page in a collection.
+            A missing value indicates that this is the last page.
+    
+    SourceModel:
+      type: object
+      format: application/json
+      description: |-
+        A source is a configuration associated with an external service that is able to receive data from
+        various sources. The same model applies for Stream, Extract and Warehouse Actions sources. Each of
+        them might have additional required configuration properties.
+      properties:
+        id:
+          type: string
+          example: '1u2ADzB4GTdG4ns9ATdtW0fdiFv'
+          description: |-
+            Unique ID of the source.
+        name:
+          type: string
+          example: 'My Source'
+          description: |-
+            Display name of the source.
+        type:
+          type: string
+          example: 'salesforce'
+          description: |-
+            Source type, (e.g 'salesforce', 'google_adwords').
+          enum:
+            - 'marketo'
+            - 'google_adwords'
+            - 's3'
+            - 'salesforce'
+        config:
+          type: object
+          description: |-
+            Source specific configuration that defines how the source related task will operate.
+        writeKey:
+          type: string
+          example: '1u2ADzBTdtW0fdiFv4GTdG4ns9A'
+          description: |-
+            Write key associated with Event sources. Should be used when events are send
+            to the data plane from this source.
+        deleted:
+          type: boolean
+          description: |-
+            If true, this source is deleted from the workspace.
+        enabled:
+          type: boolean
+          description: |-
+            If false, this source will not accept any events
+        createdAt:
+          type: string
+          format: date-time
+          example: '2021-01-01T00:00:00Z'
+          description: |-
+            An ISO8601 datetime indicating when the source was created. 
+        updatedAt:
+          type: string
+          format: date-time
+          example: '2021-01-01T00:00:00Z'
+          description: |-
+            An ISO8601 datetime indicating when the source was last updated. 
+
+    DestinationModel:
+      type: object
+      format: application/json
+      description: |-
+        A destination contains configuration related to an external service
+        that is able to receive events from various sources.
+      properties:
+        id:
+          type: string
+          example: '1u2ADzB4GTdG4ns9ATdtW0fdiFv'
+          description: |-
+            Unique ID of the destination.
+        name:
+          type: string
+          example: 'My Destination'
+          description: |-
+            Display name of the destination.
+        type:
+          type: string
+          example: 'POSTGRES'
+          description: |-
+            Destination type, (e.g 'POSTGRES', 'SNOWFLAKE').
+          enum:
+            - 'POSTGRES'
+            - 'SNOWFLAKE'
+        config:
+          type: object
+          description: |-
+            Destination specific configuration that defines how the destination related task will operate.
+        deleted:
+          type: boolean
+          description: |-
+            If true, this destination is deleted from the workspace.
+        enabled:
+          type: boolean
+          description: |-
+            If false, no events will be delivered to this destination.
+        createdAt:
+          type: string
+          format: date-time
+          example: '2021-01-01T00:00:00Z'
+          description: |-
+            An ISO8601 datetime indicating when the destination was created. 
+        updatedAt:
+          type: string
+          format: date-time
+          example: '2021-01-01T00:00:00Z'
+          description: |-
+            An ISO8601 datetime indicating when the source was last updated. 
+
+    ConnectionModel:
+      type: object
+      format: application/json
+      description: |-
+        A connection forms a data pipeline between a connected source and destination.
+      properties:
+        id:
+          type: string
+          example: '1u2dG4ns9ATdtW0fdiFvADzB4GT'
+          description: |-
+            Unique ID of the connection.
+        sourceId:
+          type: string
+          description: |-
+            The ID of the connected source.
+          example: '1u2dG4ns9AvADzB4GTTdtW0fdiF'
+        destinationId:
+          type: string
+          description: |-
+            The ID of the connected destination.
+          example: '1u2dGzB4GTTdtW0fdiF4ns9AvAD'
+        deleted:
+          type: boolean
+          description: |-
+            If true, this connection is deleted from the workspace.
+        enabled:
+          type: boolean
+          description: |-
+            If false, this connection will not accept any events.
+        createdAt:
+          type: string
+          format: date-time
+          example: '2021-01-01T00:00:00Z'
+          description: |-
+            An ISO8601 datetime indicating when the connection was created. 
+        updatedAt:
+          type: string
+          format: date-time
+          example: '2021-01-01T00:00:00Z'
+          description: |-
+            An ISO8601 datetime indicating when the connection was last updated. 
+
+    AccountModel:
+      type: object
+      format: application/json
+      description: |-
+        An account contains credentials required to connect to an external service,
+        such as an Extract or Warehouse Action source.
+      properties:
+        id:
+          type: string
+          example: '1u2dG4ns9ATdtW0fdiFvADzB4GT'
+          description: |-
+            Unique ID of the account.
+        name:
+          type: string
+          description: |-
+            Display name of the account.
+          example: 'My Salesforce Account'
+        type:
+          type: string
+          example: 'salesforce'
+          description: |-
+            Account type (e.g 'salesforce', 'google_sheets').
+        config:
+          type: object
+          description: |-
+            Account specific configuration that contains credentials and authentication information.
+        createdAt:
+          type: string
+          format: date-time
+          example: '2021-01-01T00:00:00Z'
+          description: |-
+            An ISO8601 datetime indicating when the account was created. 
+        updatedAt:
+          type: string
+          format: date-time
+          example: '2021-01-01T00:00:00Z'
+          description: |-
+            An ISO8601 datetime indicating when the account was last updated. 
+          
+    ValidationModel:
+      type: object
+      format: application/json
+      description: |-
+        The result of a configuration validation operation,
+        such as source, destination and account configuration validations.
+      required:
+        - 'isValid'
+      properties:
+        isValid:
+          type: boolean
+          example: false
+          description: |-
+            Indicates if the payload was validated successfully or not
+        error:
+          type: string
+
+    CheckpointModel:
+      type: object
+      format: application/json
+      description: |-
+        Indicates a point in time up to which an operation, such as a source import task,
+        has successfully completed. As an example, a Salesforce checkpoint indicates that
+        all related Salesforce data updated up to that point have been processed.
+      properties:
+        type:
+          type: string
+          enum:
+            - 'timestamp'
+        value:
+          type: string
+          example: '2021-01-01T00:00:00Z'
+
+    DefinitionModel:
+      type: object
+      format: application/json
+      description: |-
+        A definition describes a type of an integration, either source or destination.
+      properties:
+        name:
+          type: string
+          description: |-
+            Unique name of the integration.
+          example: 'google_adwords'
+        displayName:
+          type: string
+          description: |-
+            Display name of the integration.
+          example: 'Google AdWords'             
+        category:
+          type: string
+          description: |-
+            Category to which an integration belongs.
+          example: 'warehouse'
+             
+security:
+  - accessToken: []
+
+paths:
+  # Sources
+
+  /sources:
+    get:
+      summary: List all sources
+      operationId: listSources
+      description: |-
+        Returns a paginated list of sources that belong to the authenticated workspace.
+      tags:
+        - Sources
+      parameters:
+        - name: page
+          description: Number of page in results' list.
+          schema:
+            type: integer
+            default: 1
+          in: query
+        - name: per_page
+          description: Number of items in page.
+          schema:
+            type: integer
+            default: 20
+          in: query
+        - name: type
+          description: Filter sources by type.
+          schema:
+            type: string
+          in: query
+
+      responses:
+        '200':
+          description: |-
+            A page of sources and pagination information.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sources:
+                    type: array
+                    description: |-
+                      A page of sources.
+                    items:
+                      $ref: '#/components/schemas/SourceModel'
+                  paging:
+                    $ref: '#/components/schemas/PagingModel'
+    post:
+      tags:
+        - Sources
+      summary: Create a source      
+      operationId: createSource
+      description: |-
+        Creates a new source.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - 'name'
+                - 'type'
+                - 'config'
+              properties:
+                name:
+                  type: string
+                  description: |-
+                    Display name of the source.
+                type:
+                  type: string
+                  description: |-
+                    Source type (e.g 'salesforce', 'marketo').
+                config:
+                  type: object
+                  description: |-
+                    Source specific configuration.
+              example:
+                {
+                  'name': 'My new source',
+                  'type': 'salesforce',
+                  'config': {
+                    'source-specific-key': 'source-specific-value'
+                  }
+                }
+      responses:
+        '200':
+          description: |-
+            Source was created successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  source:
+                    description: |-
+                      The created source.
+                    $ref: '#/components/schemas/SourceModel'
+        '400':
+          description: |-
+            Request body was invalid.
+
+  /sources/{source_id}:
+    parameters:
+      - name: source_id
+        schema:
+          type: string
+        in: path
+        description: Specify a source id to apply the operation on
+        required: true
+    get:
+      summary: Get a source with specified ID.
+      operationId: getSource
+      tags:
+        - Sources
+      responses:
+        '200':
+          description: |-
+            The source with specified id, if found.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  source:
+                    $ref: '#/components/schemas/SourceModel'
+        '404':
+          description: |-
+            No source with specified id was associated with the authenticated workspace.
+    put:
+      summary: Update a source with specified ID.
+      operationId: updateSource
+      tags:
+        - Sources
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - 'name'
+                - 'type'
+                - 'config'
+              properties:
+                name:
+                  type: string
+                  description: |-
+                    Display name of the source.
+                type:
+                  type: string
+                  description: |-
+                    Source type (e.g 'salesforce', 'marketo').
+                config:
+                  type: object
+                  description: |-
+                    Source specific configuration.
+              example:
+                {
+                  'name': 'My new source',
+                  'type': 'salesforce',
+                  'config': {
+                    'source-specific-key': 'source-specific-value'
+                  }
+                }
+      responses:
+        '200':
+          description: |-
+            The updated source.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  source:
+                    $ref: '#/components/schemas/SourceModel'
+        '400':
+          description: |-
+            Request body was invalid.
+        '404':
+          description: |-
+            No source with specified ID is associated with the authenticated workspace.
+    delete:
+      summary: Delete a source with specified ID.
+      operationId: deleteSource
+      tags:
+        - Sources
+      responses:
+        '204':
+          description: |-
+            Source was deleted.
+        '404':
+          description: |-
+            No source with specified id was associated with the user.
+
+  /sources/{source_id}/start:
+    parameters:
+      - name: source_id
+        schema:
+          type: string
+        in: path
+        description: Specify a source id to apply the operation on.
+        required: true
+    post:
+      tags:
+        - Sources
+      summary: Request a source to start syncing.
+      operationId: startSourceSync
+      description: |-
+        Will request the start of a sync operation for a source. Only applies to
+        Extract and Warehouse Action sources. If a source belongs to another category
+        it does not have an enabled connection associated, or a sync operation is already
+        active for this source, the request will fail with a 409 status code.
+      responses:
+        '200':
+          description: |-
+            Start request was sent successfully.
+        '404':
+          description: |-
+            No source with specified id was associated with the authenticated workspace.
+        '409':
+          description: |-
+            Start sync is not supported for this source, or the source is already syncing.
+
+  /sources/{source_id}/stop:
+    parameters:
+      - name: source_id
+        schema:
+          type: string
+        in: path
+        description: Specify a source id to apply the operation on.
+        required: true
+    post:
+      tags:
+        - Sources
+      summary: Request any running sync to stop for this source.
+      operationId: stopSourceSync
+      description: |-
+        Will request the stop of a running sync operation for a source. Only applies to
+        Extract and Warehouse Action sources. If a source belongs to another category
+        or the source does not have an active sync the request will fail with a 409 status code.
+      responses:
+        '200':
+          description: |-
+            Stop request was sent successfully.
+        '404':
+          description: |-
+            No source with specified id was associated with the associated workspace.
+        '409':
+          description: |-
+            Stop sync is not supported for this source.
+
+
+  /sources/{source_id}/status:
+    parameters:
+      - name: source_id
+        schema:
+          type: string
+        in: path
+        description: Specify a source id to apply the operation on
+        required: true
+    get:
+      tags:
+        - Sources
+      summary: Get the current status of a source's sync.
+      description: |-
+        Returns the current status of a source's sync operation. Sync operations
+        include one task execution for each resource associated with a source.
+        All of the tasks belong to common job, which will complete after all the
+        associated tasks have been completed.
+      operationId: getSourceSyncStatus
+      responses:
+        '200':
+          description: |-
+            Current source sync status.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - 'jobId'
+                  - 'jobRunId'
+                  - 'startedAt'
+                properties:
+                  jobId:
+                    type: string
+                    description: |-
+                      A job ID associated to source's sync operation. This ID will
+                      remain the same for all executed sync operations associated with
+                      this source. In most cases, it corresponds to the source's ID.
+                    example: '1uLnI8UxxEQNxYQi3c0ZwYe1arO'
+                  jobRunId:
+                    type: string
+                    description: |-
+                      A unique run ID associated with a specific execution of a sync
+                      operation. It's time a new sync operation starts, a new run ID
+                      will be associated with it.
+                    example: 'c39j7vsin7i7b5gd4tk0'
+                  error:
+                    type: string
+                    description: |-
+                      An optional error message. If it exists, it indicates an error that
+                      occurred during the execution of the source's sync operation.
+                      Specific errors associated with individual resources related to this
+                      source, are reported independently in the task status information.
+                    example: 'something wrong happened'
+                  startedAt:
+                    type: string
+                    format: date-time
+                    example: '2021-01-01T00:00:00Z'
+                    description: |-
+                      An ISO8601 datetime indicating when the sync operation started. 
+                  finishedAt:
+                    type: string
+                    format: date-time
+                    example: '2021-01-01T00:00:00Z'
+                    description: |-
+                      An ISO8601 datetime indicating when the sync operation completed,
+                      either successfully or with an error. In case an error happened,
+                      the error property will contain an error message. If the sync operation
+                      is still running, this property will be omitted.                 
+                  tasks:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        taskId:
+                          type: string
+                          description: |-
+                            A task ID associated to source's sync operation, for a specific resource.
+                            This ID will remain the same for all executed sync operations associated with
+                            this source and resource. In most cases, it corresponds to the a resource's ID.
+                          example: 'Leads'
+                        taskRunId:
+                          type: string
+                          description: |-
+                            A unique run ID associated with a specific execution of a sync
+                            operation, for a specific resource. It's time a new sync operation starts for a resource,
+                            a new run ID will be associated with it.
+                          example: 'c39j7vsin7i7b5gd4tk0'
+                        error:
+                          type: string
+                          description: |-
+                            An optional error message. If it exists, it indicates an error that
+                            occurred during the execution of the source's sync operation for a
+                            specific resource.
+                          example: 'something wrong happened'
+                        startedAt:
+                          type: string
+                          format: date-time
+                          example: '2021-01-01T00:00:00Z'
+                          description: |-
+                            An ISO8601 datetime indicating when the sync operation started. 
+                        finishedAt:
+                          type: string
+                          format: date-time
+                          example: '2021-01-01T00:00:00Z'
+                          description: |-
+                            An ISO8601 datetime indicating when the sync operation completed,
+                            either successfully or with an error. In case an error happened,
+                            the error property will contain an error message. If the sync operation
+                            is still running, this property will be omitted.  
+        '404':
+          description: |-
+            No source with specified id was associated with the authenticated workspace,
+            or no sync operation associated with source has started.
+
+  /sources/{source_id}/checkpoints:
+    parameters:
+      - name: source_id
+        schema:
+          type: string
+        in: path
+        description: Specify a source id to apply the operation on.
+        required: true
+    get:
+      summary: Get checkpoint information associated with this source.
+      operationId: listSourceCheckpoints
+      tags:
+        - Sources
+      responses:
+        '200':
+          description: |-
+            List of checkpoints associated with this source id.
+          content:
+            application/json:
+              example: |-
+                {
+                  'checkpoints': {
+                    'resource-id-1': {
+                      'type': 'timestamp',
+                      'value': '2021-01-01T00:00:00Z'
+                    },
+                    'resource-id-2': {
+                      'type': 'timestamp',
+                      'value': '2021-01-02T00:00:00Z'
+                    }
+                  }
+                }
+              schema:
+                type: object
+                properties:
+                  checkpoints:
+                    type: object
+                    additionalProperties:
+                      $ref: '#/components/schemas/CheckpointModel'                      
+        '404':
+          description: |-
+            No source with specified id was associated with the authenticated workspace.
+
+    delete:
+      summary: Delete all checkpoint information associated with this source.
+      operationId: deleteAllSourceCheckpoints
+      description: |-
+        Removes all stored checkpoints associated with this source. In effect,
+        the next sync operation will import historical data from all the resources
+        associated with this source.
+      tags:
+        - Sources
+      responses:
+        '204':
+          description: |-
+            All checkpoints associated with source have been deleted.
+        '404':
+          description: |-
+            No source with specified id was associated with the authenticated workspace.
+
+  /sources/{source_id}/checkpoints/{resource_id}:
+    parameters:
+      - name: source_id
+        schema:
+          type: string
+        in: path
+        description: Specify a source id to apply the operation on
+        required: true
+      - name: resource_id
+        schema:
+          type: string
+        in: path
+        description: Specify a resource id to apply the operation on
+        required: true
+    get:
+      summary: get a checkpoint for specified source/resource.
+      operationId: getSourceResourceCheckpoint
+      tags:
+        - Sources
+      responses:
+        '200':
+          description: |-
+            Checkpoint set for source/resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CheckpointModel'
+        '404':
+          description: |-
+            No source with specified id was associated with the authenticated workspace,
+            or no checkpoint was set for specified resource.
+    put:
+      summary: Update a checkpoint for specified source/resource.
+      operationId: updateSourceResourceCheckpoint
+      tags:
+        - Sources
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CheckpointModel'
+      responses:
+        '200':
+          description: |-
+            Checkpoint for source/resource was updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CheckpointModel'
+        '400':
+          description: |-
+            Request body was invalid.
+        '404':
+          description: |-
+            No source or resource with specified id was associated with the authenticated workspace.
+    delete:
+      summary: Remove a checkpoint for specified source/resource.
+      operationId: deleteSourceResourceCheckpoint
+      description: |-
+        Removes a stored checkpoint associated with this source, if it exists.
+        In effect, the next sync operation will import historical data from the
+        resource used in this operation.
+      tags:
+        - Sources
+      responses:
+        '200':
+          description: |-
+            Checkpoint for source/resource was deleted.
+        '404':
+          description: |-
+            No source with specified id was associated with the authenticated workspace.
+
+  # Destinations
+
+  /destinations:
+    get:
+      summary: List all destinations
+      operationId: listDestinations
+      description: |-
+        Get a paginated list of destinations that belong to the authenticated workspace.
+      tags:
+        - Destinations
+      parameters:
+        - name: page
+          description: Number of page in results' list
+          schema:
+            type: integer
+            default: 1
+          in: query
+        - name: per_page
+          description: Number of items in page
+          schema:
+            type: integer
+            default: 20
+          in: query
+        - name: type
+          description: Filter destinations by type.
+          schema:
+            type: string
+          in: query
+      responses:
+        '200':
+          description: |-
+            A page of destinations with pagination information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  destinations:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DestinationModel'
+                  paging:
+                    $ref: '#/components/schemas/PagingModel'
+    post:
+      tags:
+        - Destinations
+      summary: Create a destination
+      operationId: createDestination
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: |-
+                    Display name of the destination.
+                  example: 'My Postgres'
+                type:
+                  type: string
+                  description: |-
+                    Destination type (e.g 'POSTGRES', 'SNOWFLAKE').
+                  example: POSTGRES
+                config:
+                  type: object
+                  description: |-
+                    Destination specific configuration.
+      responses:
+        '200':
+          description: |-
+            Destination was created successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  destination:
+                    $ref: '#/components/schemas/DestinationModel'
+        '400':
+          description: |-
+            Request body was invalid.
+
+  /destinations/{destination_id}:
+    parameters:
+      - name: destination_id
+        schema:
+          type: string
+        in: path
+        description: Specify a destination id to apply the operation on
+        required: true
+    get:
+      summary: Get a destination with specified id.
+      operationId: getDestination
+      tags:
+        - Destinations
+      responses:
+        '200':
+          description: |-
+            Get a destination with specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DestinationModel'
+        '404':
+          description: |-
+            No destination with specified id was associated with the authenticated workspace.
+    put:
+      summary: Update a destination with specified id.
+      operationId: updateDestination
+      tags:
+        - Destinations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: |-
+                    Display name of the destination.
+                  example: 'My Postgres'
+                type:
+                  type: string
+                  description: |-
+                    Destination type (e.g 'POSTGRES', 'SNOWFLAKE').
+                  example: POSTGRES
+                config:
+                  type: object
+                  description: |-
+                    Destination specific configuration.
+      responses:
+        '200':
+          description: |-
+            Destination was updated successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  destination:
+                    $ref: '#/components/schemas/DestinationModel'
+        '404':
+          description: |-
+            No destination with specified id was associated with the authenticated workspace.
+    delete:
+      summary: Delete a destination with specified id.
+      operationId: deleteDestination
+      tags:
+        - Destinations
+      responses:
+        '204':
+          description: |-
+            Destination was deleted.
+        '404':
+          description: |-
+            No destination with specified id was associated with the authenticated workspace.
+
+  # Connections
+
+  /connections:
+    get:
+      summary: List all connections
+      operationId: listConnections
+      description: |-
+        Get a paginated list of connections that belong to the authenticated workspace.
+      tags:
+        - Connections
+      parameters:
+        - name: page
+          description: Number of page in results' list
+          schema:
+            type: integer
+            default: 1
+          in: query
+        - name: per_page
+          description: Number of items in page
+          schema:
+            type: integer
+            default: 20
+          in: query
+        - name: sourceId
+          description: Filter connections by source.
+          schema:
+            type: string
+          in: query
+        - name: destinationId
+          description: Filter connections by destination.
+          schema:
+            type: string
+          in: query
+      responses:
+        '200':
+          description: |-
+            A page of connections with pagination information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  connections:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ConnectionModel'
+                  paging:
+                    $ref: '#/components/schemas/PagingModel'
+    post:
+      tags:
+        - Connections
+      summary: Create a connection
+      operationId: createConnection
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sourceId:
+                  type: string
+                  description: |-
+                    ID of the source that will be connected.
+                  example: '1u2dG4ns9AvADzB4GTTdtW0fdiF'
+                destinationId:
+                  type: string
+                  description: |-
+                    ID of the destination that will be connected.
+                  example: '1u2dGzB4GTTdtW0fdiF4ns9AvAD'
+      responses:
+        '200':
+          description: |-
+            Connection was created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConnectionModel'
+        '400':
+          description: |-
+            Request body was invalid.
+
+  /connections/{connection_id}:
+    parameters:
+      - name: connection_id
+        schema:
+          type: string
+        in: path
+        description: Specify a connection id to apply the operation on
+        required: true
+    get:
+      summary: Get a connection with specified id.
+      operationId: getConnection
+      tags:
+        - Connections
+      responses:
+        '200':
+          description: |-
+            The connection with specified id.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConnectionModel'
+        '404':
+          description: |-
+            No connection with specified id was associated with the authenticated workspace.
+    delete:
+      summary: Delete a connection with specified id.
+      operationId: deleteConnection
+      tags:
+        - Connections
+      responses:          
+        '204':
+          description: |-
+            Account was deleted.
+        '404':
+          description: |-
+            No connection with specified id was associated with the authenticated workspace.
+
+  # Accounts
+
+  /accounts:
+    get:
+      summary: List all accounts
+      operationId: listAccounts
+      description: |-
+        Get a paginated list of accounts that belong to the authenticated workspace.
+      tags:
+        - Accounts
+      parameters:
+        - name: page
+          description: Number of page in results' list
+          schema:
+            type: integer
+            default: 1
+          in: query
+        - name: per_page
+          description: Number of items in page
+          schema:
+            type: integer
+            default: 20
+          in: query
+      responses:
+        '200':
+          description: |-
+            A page of accounts with pagination information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accounts:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AccountModel'
+                  paging:
+                    $ref: '#/components/schemas/PagingModel'
+    post:
+      tags:
+        - Accounts
+      summary: Create an account
+      operationId: createAccount
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: |-
+                    Display name of the account.
+                  example: 'My Salesforce Account'
+                type:
+                  type: string
+                  description: |-
+                    Account type (e.g 'salesforce', 'google_sheets').
+                config:
+                  type: object
+                  description: |-
+                    Account specific configuration.
+      responses:
+        '200':
+          description: |-
+            Account was created successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  account:
+                    description: |-
+                      The created account.
+                    $ref: '#/components/schemas/AccountModel'
+        '400':
+          description: |-
+            Request body was invalid.
+
+  /accounts/{account_id}:
+    parameters:
+      - name: account_id
+        schema:
+          type: string
+        in: path
+        description: Specify an account id to apply the operation on
+        required: true
+    get:
+      summary: Get an account with specified id.
+      operationId: getAccount
+      tags:
+        - Accounts
+      responses:
+        '200':
+          description: |-
+            Get an account with specified id.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountModel'
+        '404':
+          description: |-
+            No account with specified id was associated with the authenticated workspace.
+    put:
+      summary: Update an account with specified id.
+      operationId: updateAccount
+      tags:
+        - Accounts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: |-
+                    Display name of the account.
+                  example: 'My Salesforce Account'
+                type:
+                  type: string
+                  description: |-
+                    Account type (e.g 'salesforce', 'google_sheets').
+                config:
+                  type: object
+                  description: |-
+                    Account specific configuration.
+      responses:
+        '200':
+          description: |-
+            Account was created successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  account:
+                    $ref: '#/components/schemas/AccountModel'
+        '400':
+          description: |-
+            Request body was invalid.
+        '404':
+          description: |-
+            No account with specified id was associated with the authenticated workspace.
+    delete:
+      summary: Delete an account with specified id.
+      operationId: deleteAccount
+      tags:
+        - Accounts
+      responses:
+        '204':
+          description: |-
+            Account was deleted.
+        '404':
+          description: |-
+            No account with specified id was associated with the authenticated workspace.
+
+  # Info
+
+  /info/sources/{source_type}/resources:
+    parameters:
+      - name: source_type
+        schema:
+          type: string
+        in: path
+        description: The type of source to apply the operation on.
+        required: true
+    post:
+      summary: Fetch a list of resources available for a source type and configuration.
+      description: |-
+        Given a source configuration that corresponds to a specific source type,
+        this endpoint returns all resources that can be associated with a source
+        for import purposes. The operation might include calls to the associated
+        remote service, in order to identify available resources (e.g for a
+        for a Salesforce source, calls to the Salesforce instance associated with the
+        provided configuration will be made to identify all the available Salesforce
+        objects associated with the configuration).
+      tags:
+        - Info
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - type: object
+                  properties:
+                    accountId:
+                      type: string
+                      description: An existing account id that will be used for the source account's configuration.
+                      example: 1u2dG4ns9ATdtW0fdiFvADzB4GT
+                - type: object
+                  properties:
+                    config:
+                      type: object
+                      description: A source account specific configuration.
+      responses:
+        '200':
+          description: |-
+            A list of resources available for specified source type and configuration.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  resources:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          description: |-
+                            Type of supported resource.
+                          example: "Leads"
+                        multiple:
+                          type: boolean
+                          description: |-
+                            A flag that indicates if a source supports importing of data 
+                            of multiple resources of the same type.
+                          example: false
+
+  /info/sources/{source_type}/resources/resource_type/properties:
+    parameters:
+      - name: source_type
+        schema:
+          type: string
+        in: path
+        description: The type of source to apply the operation on.
+        required: true
+        example: salesforce
+      - name: resource_type
+        schema:
+          type: string
+        in: path
+        description: The type of resource to apply the operation on.
+        required: true
+        example: Leads
+    post:
+      summary: Fetch a list of properties of specified resource.
+      description: |-
+        Given a source configuration that corresponds to a specific source type,
+        and a resource that is available for that source, this endpoint returns all
+        properties of that resource. The operation might include calls to the associated
+        remote service, in order to identify available properties (e.g for a
+        for a Salesforce source, calls to the Salesforce instance associated with the
+        provided configuration will be made to identify all the Salesforce fields
+        of the Salesforce object that corresponds to the resource.
+      tags:
+        - Info
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - type: object
+                  properties:
+                    accountId:
+                      type: string
+                      description: An existing account id that will be used for the source account's configuration.
+                      example: 1u2dG4ns9ATdtW0fdiFvADzB4GT
+                - type: object
+                  properties:
+                    config:
+                      type: object
+                      description: A source account specific configuration.
+      responses:
+        '200':
+          description: |-
+            A list of resources available for specified source type and configuration.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  properties:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: |-
+                            Name of the resource's property.
+                          example: 'address'
+                        required:
+                          type: boolean
+                          description: |-
+                            Indicates if this property must always be present in the properties selection.
+
+  # Definitions
+
+  /definitions/sources:
+    get:
+      summary: List all source definitions
+      operationId: listSourceDefinitions
+      description: |-
+        Returns a list of definitions for all available source integrations.
+      tags:
+        - Definitions
+
+      responses:
+        '200':
+          description: |-
+            A list of definitions.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  definitions:
+                    type: array
+                    description: |-
+                      A list of definitions.
+                    items:
+                      $ref: '#/components/schemas/DefinitionModel'
+
+  /definitions/destinations:
+    get:
+      summary: List all destination definitions
+      operationId: listDestinationDefinitions
+      description: |-
+        Returns a list of definitions for all available destination integrations.
+      tags:
+        - Definitions
+
+      responses:
+        '200':
+          description: |-
+            A list of definitions.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  definitions:
+                    type: array
+                    description: |-
+                      A list of definitions.
+                    items:
+                      $ref: '#/components/schemas/DefinitionModel'
