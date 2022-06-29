@@ -9,7 +9,7 @@ menu:
 ---
 
 {{% pageinfo %}}
-Fuck the police
+Fuck the po po
 {{% /pageinfo %}}
 
 ## Setup
